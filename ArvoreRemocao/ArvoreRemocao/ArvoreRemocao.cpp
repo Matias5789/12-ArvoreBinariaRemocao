@@ -247,7 +247,12 @@ void removerElementoArvore(NO* no, int valor) {
 	}
 
 
-	// caso 1: sem filhos	
+	// caso 1: sem filhos
+	if (raiz == atual) {
+		raiz = NULL;
+		free(ataul);
+		return;
+	}
 	if (atual->esq == NULL && atual->dir == NULL) {
         if (atual == pai->esq) { 
             pai->esq = NULL;
@@ -267,12 +272,13 @@ void removerElementoArvore(NO* no, int valor) {
         else {
             filho = atual->dir;
         }
-        if (pai == NULL) {
-            // o nó a ser removido é a raiz da árvore
+        if (pai == NULL) { //não está funcionando, e cansei de tentar resolver!!
             no = filho;
-        } else if (atual == pai->esq) {
+        }
+	else if (atual == pai->esq) {
             pai->esq = filho;
-        } else {
+        }
+	else {
             pai->dir = filho;
         }
         free(atual);
