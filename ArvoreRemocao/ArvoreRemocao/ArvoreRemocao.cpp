@@ -250,7 +250,7 @@ void removerElementoArvore(NO* no, int valor) {
 	// caso 1: sem filhos
 	if (raiz == atual) {
 		raiz = NULL;
-		free(ataul);
+		free(atual);
 		return;
 	}
 	if (atual->esq == NULL && atual->dir == NULL) {
@@ -313,7 +313,6 @@ void removerElementoArvore(NO* no, int valor) {
 
 
 }
-
 
 
 
